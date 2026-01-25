@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ذهب أصلي وثقة محلية | محل مجوهرات العبور</title>
+    <meta name="description" content="محل مجوهرات في مدينة العبور — سبايك، جنيهات ومجوهرات ذهبية. تواصل معنا واحجز زيارة للمحل للاستشارة والشراء.">
+    
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#E5C167',
+                            DEFAULT: '#CBA135',
+                            dark: '#A6832A',
+                        },
+                        dark: '#1A1A1A',
+                        ivory: '#F9F8F3'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1611085583191-a3b1588dff21?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; }
+        .fade-in { animation: fadeIn 1s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-ivory text-dark">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gold flex items-center gap-2">
+                <span class="text-3xl">✨</span>
+                <span>مجوهرات العبور</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-semibold">
+                <a href="#about" class="hover:text-gold transition">عن المحل</a>
+                <a href="#services" class="hover:text-gold transition">خدماتنا</a>
+                <a href="#faq" class="hover:text-gold transition">أسئلة شائعة</a>
+            </div>
+            <div class="flex gap-2">
+                <a href="tel:+201000000000" class="bg-gold hover:bg-gold-dark text-white px-4 py-2 rounded-lg text-sm transition font-bold shadow-md">اتصل بنا</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-[80vh] flex items-center text-white text-center px-4">
+        <div class="container mx-auto fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">دهب أصلي وثقة محلية.. <br>خدمة محترمة في العبور</h1>
+            <p class="text-lg md:text-xl mb-10 text-gray-200 max-w-2xl mx-auto">
+                سبايك، جنيهات ومجوهرات ذهبية — عندنا النصيحة قبل الشراء. استشارة مجانية داخل المحل لكل أهل العبور.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="https://wa.me/201000000000" class="bg-gold hover:bg-gold-dark text-white px-8 py-4 rounded-full text-lg font-bold transition transform hover:scale-105">تواصل دلوقتي على واتساب</a>
+                <a href="#contact" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/50 text-white px-8 py-4 rounded-full text-lg font-bold transition">احجز ميعاد للزيارة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2000&auto=format&fit=crop" alt="داخل محل الذهب" class="rounded-2xl shadow-xl">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold text-gold mb-6">إحنا مين؟</h2>
+                <p class="text-gray-600 leading-relaxed text-lg mb-6">
+                    إحنا محل مجوهرات متخصص موجود في قلب مدينة العبور (الحي الأول). هدفنا بسيط: نوفر دهب وفضة بأعلى جودة وبأمانة تامة. سواء بتدور على حاجة تلبسها أو عايز تستثمر فلوسك في سبايك وجنيهات، إحنا هنا عشان نساعدك تختار الأنسب ليك.
+                </p>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div class="flex items-center gap-2">✅ خبرة في سوق الذهب</div>
+                    <div class="flex items-center gap-2">✅ موقع سهل الوصول</div>
+                    <div class="flex items-center gap-2">✅ ميزان دقيق ومعتمد</div>
+                    <div class="flex items-center gap-2">✅ نصيحة استثمارية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Products Placeholder -->
+    <section id="services" class="py-20 bg-ivory">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-12">بنقدم لك إيه؟</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-bold mb-2">سبايك وجنيهات</h3>
+                    <p class="text-gray-500 text-sm">أفضل طريقة للادخار والاستثمار بأقل مصنعية.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border-2 border-gold/20">
+                    <div class="text-4xl mb-4">💍</div>
+                    <h3 class="text-xl font-bold mb-2">مجوهرات ذهبية</h3>
+                    <p class="text-gray-500 text-sm">تشكيلة مميزة من المشغولات الذهبية (عيار 18 و 21).</p>
+                    <span class="inline-block mt-3 text-[10px] bg-gold/10 text-gold px-2 py-1 rounded">قريباً - انتظروا الصور</span>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-4xl mb-4">⚖️</div>
+                    <h3 class="text-xl font-bold mb-2">استشارات استثمارية</h3>
+                    <p class="text-gray-500 text-sm">مش عارف تشتري إمتى؟ تعالي المحل وهنقولك الخلاصة.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-2">تحويل تخصصي</h3>
+                    <p class="text-gray-500 text-sm">للماس والأحجار الكريمة، بنحولك لشركائنا المتخصصين.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Info -->
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">نورنا في المحل</h2>
+                    <p class="text-gray-600 mb-8">إحنا موجودين في العبور، الحي الأول، القليوبية. مستنيين زيارتك!</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-4">
+                            <span class="bg-ivory p-3 rounded-full text-gold">📍</span>
+                            <span>مدينة العبور، الحي الأول، القليوبية</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="bg-ivory p-3 rounded-full text-gold">📞</span>
+                            <span>0100 000 0000</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="bg-ivory p-3 rounded-full text-gold">⏰</span>
+                            <span>يومياً من 12 ظهراً لـ 10 مساءً (الجمعة إجازة)</span>
+                        </li>
+                    </ul>
+
+                    <!-- Simple Map Placeholder -->
+                    <div class="w-full h-64 bg-gray-200 rounded-2xl overflow-hidden relative">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-500">
+                             <p>خريطة جوجل (Google Maps) ستظهر هنا</p>
+                        </div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13797.23414902347!2d31.472535!3d30.2285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145817a1f5555555%3A0x5555555555555555!2sAl%20Obour%20City!5e0!3m2!1sen!2seg!4v1234567890" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:w-1/2 bg-ivory p-8 rounded-2xl shadow-inner">
+                    <h3 class="text-2xl font-bold mb-6">سيب بياناتك وهنكلمك</h3>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">الاسم بالكامل</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="اكتب اسمك هنا">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">رقم التليفون (واتساب)</label>
+                            <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="01xxxxxxxxx">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">إنت مهتم بإيه؟</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none">
+                                <option>شراء ذهب (لبس)</option>
+                                <option>استثمار (سبايك وجنيهات)</option>
+                                <option>استشارة بخصوص الماس</option>
+                                <option>صيانة وتصليح</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">رسالتك (اختياري)</label>
+                            <textarea class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none h-24" placeholder="تحب تقولنا أي تفاصيل تانية؟"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-dark text-white py-4 rounded-lg font-bold hover:bg-black transition">إرسال الطلب</button>
+                        <p id="formFeedback" class="text-sm text-green-600 hidden text-center mt-2 font-bold">شكراً! هنرد عليك خلال 24 ساعة.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-ivory/50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl font-bold mb-12 text-center">أسئلة بتيجي في بالكم</h2>
+            <div class="space-y-4">
+                <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer" open>
+                    <summary class="font-bold flex justify-between items-center list-none">
+                        هل بتبيعوا ماس وأحجار كريمة؟
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 text-sm leading-relaxed">حالياً إحنا متخصصين في الذهب والفضة والسبايك. للماسات والأحجار الكريمة بنحيلك لشركاء متخصصين بنثق فيهم عشان نضمن لك أحسن جودة.</p>
+                </details>
+
+                <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer">
+                    <summary class="font-bold flex justify-between items-center list-none">
+                        إزاي أتأكد من نقاوة الذهب؟
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 text-sm">كل قطعة عندنا مختومة بختم مصلحة الدمغة والموازين المصرية، وبنوزن القطعة قدامك على ميزان حساس معتمد.</p>
+                </details>
+
+                <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer">
+                    <summary class="font-bold flex justify-between items-center list-none">
+                        إيه أحسن وقت أشتري فيه دهب كاستثمار؟
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 text-sm">أحسن وقت هو لما يكون معاك فائض مادي، والذهب استثمار طويل الأمد. شرفنا في المحل وهنحلل لك وضع السوق الحالي.</p>
+                </details>
+
+                <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer">
+                    <summary class="font-bold flex justify-between items-center list-none">
+                        عندكم دفع بالفيزا؟
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 text-sm">أيوه، بنقبل الدفع النقدي (Cash) أو من خلال ماكينات الفيزا المتوفرة في المحل.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="text-2xl font-bold text-gold mb-6">مجوهرات العبور</div>
+            <p class="text-gray-400 text-sm mb-8">كل الحقوق محفوظة &copy; 2024 - مدينة العبور</p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="hover:text-gold transition">فيسبوك</a>
+                <a href="#" class="hover:text-gold transition">إنستجرام</a>
+                <a href="#" class="hover:text-gold transition">واتساب</a>
+            </div>
+            <a href="#" class="text-xs text-gray-500 underline">سياسة الخصوصية</a>
+        </div>
+    </footer>
+
+    <!-- Chat Widget Placeholder -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-[60]">
+        <button onclick="toggleChat()" class="bg-gold text-white p-4 rounded-full shadow-2xl hover:scale-110 transition duration-300">
+            💬
+        </button>
+        <div id="chat-box" class="hidden absolute bottom-20 right-0 w-80 bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100">
+            <div class="bg-gold p-4 text-white font-bold flex justify-between items-center">
+                <span>مساعد العبور الذكي</span>
+                <button onclick="toggleChat()">✕</button>
+            </div>
+            <div class="h-64 p-4 overflow-y-auto bg-gray-50 text-sm" id="chat-messages">
+                <div class="bg-white p-3 rounded-lg shadow-sm mb-2 max-w-[80%]">
+                    أهلاً بك! أنا هنا عشان أساعدك في أي استفسار عن الذهب أو موقع المحل.
+                </div>
+            </div>
+            <div class="p-3 border-t flex gap-2">
+                <input type="text" placeholder="اسألني أي حاجة..." class="flex-1 text-sm outline-none border rounded px-2">
+                <button class="text-gold font-bold">إرسال</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form Handling
+        const form = document.getElementById('contactForm');
+        const feedback = document.getElementById('formFeedback');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate API call
+            form.querySelectorAll('button')[0].innerText = "جاري الإرسال...";
+            setTimeout(() => {
+                form.reset();
+                form.querySelectorAll('button')[0].innerText = "إرسال الطلب";
+                feedback.classList.remove('hidden');
+            }, 1000);
+        });
+
+        // Chat Toggle
+        function toggleChat() {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.classList.toggle('hidden');
+        }
+
+        /* Instructions for AI Integration:
+        1. Replace the buttons 'إرسال' logic with a fetch to your endpoint.
+        2. Endpoint: https://your-api.com/chat
+        3. Logic: 
+           - System prompt: "You are an AI assistant for a jewelry shop in El Obour, Egypt. Speak in Egyptian Arabic."
+           - If asked about Diamonds: "For diamonds, we refer you to our expert partners."
+        */
+    </script>
+</body>
+</html>
