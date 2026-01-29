@@ -38,11 +38,32 @@
     </script>
 
     <style>
-        body { font-family: 'Rubik', sans-serif; scroll-behavior: smooth; }
-        .hero-gradient { background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1611085583191-a3b1588dff21?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; }
-        .fade-in { animation: fadeIn 1s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+    body { font-family: 'Rubik', sans-serif; scroll-behavior: smooth; }
+
+    /* الريموت المحدث والقوي لضمان تطبيق التنسيق على الكل */
+    .main-title {
+        font-family: "Aref Ruqaa", serif !important;
+        font-weight: 700 !important;
+        font-size: 2.25rem !important;
+        line-height: 1.6 !important;
+        display: block !important;
+        color: #27374A !important; /* السطر ده هو اللي غير اللون للكل */
+    }
+    }
+
+    /* استجابة العناوين للموبايل */
+    @media (max-width: 768px) {
+        .main-title {
+            font-size: 1.875rem !important; /* حجم 3xl للموبايل */
+            
+        }
+    }
+
+    /* باقي التنسيقات الخاصة بك */
+    .hero-gradient { background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1611085583191-a3b1588dff21?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; }
+    .fade-in { animation: fadeIn 1s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
 </head>
 <body class="bg-ivory text-dark">
 
@@ -97,7 +118,7 @@
                 <img src="Rings-2.jpg" alt="مجوهرات راقية" class="rounded-none shadow-none">
             </div>
             <div class="md:w-1/2">
-                <h2 class="text-4xl font-bold font-Aref text-gold mb-6">إحنا مين؟</h2>
+                <h2 class="main-title mb-6">إحنا مين؟</h2>
                 <p class="text-gray-600 leading-relaxed text-lg mb-6">
                     إحنا محل مجوهرات متخصص موجود في قلب مدينة العبور (الحي الأول). هدفنا بسيط: نوفر دهب وفضة بأعلى جودة وبأمانة تامة. سواء بتدور على حاجة تلبسها أو عايز تستثمر فلوسك في سبايك وجنيهات، إحنا هنا عشان نساعدك تختار الأنسب ليك.
                 </p>
@@ -114,7 +135,7 @@
     <!-- Services / Products Placeholder -->
     <section id="services" class="py-20 bg-ivory">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold font-Aref mb-12 leading-relaxed text-dark">بنقدم لك إيه؟</h2>
+            <h2 class="main-title mb-12">بنقدم لك إيه؟</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto">
                 <!-- Service 1 -->
                 <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
@@ -147,7 +168,7 @@
             <div class="flex flex-col lg:flex-row gap-12">
                 <!-- Info -->
                 <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-bold font-Aref">نورنا في المحل</h2>
+                    <h2 class="main-title mb-4">نورنا في المحل</h2>
                     <p class="text-gray-600 mb-8">إحنا موجودين في العبور، الحي الأول، القليوبية. مستنيين زيارتك!</p>
                     
                     <ul class="space-y-4 mb-8">
@@ -179,7 +200,7 @@
 
                 <!-- Form -->
                 <div class="lg:w-1/2 bg-ivory p-8 rounded-2xl shadow-inner">
-                    <h3 class="text-3xl font-bold font-Aref mb-6">سيب بياناتك وهنكلمك</h3>
+                    <h3 class="main-title mb-6">سيب بياناتك وهنكلمك</h3>
                     <form id="contactForm" class="space-y-4" novalidate>
                         <div>
                             <label class="block text-sm font-semibold mb-1">الاسم بالكامل</label>
@@ -213,7 +234,7 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-20 bg-ivory/50">
         <div class="container mx-auto px-4 max-w-3xl">
-            <h2 class="text-4xl font-bold font-Aref mb-12 text-center">أسئلة بتيجي في بالكم</h2>
+            <h2 class="main-title mb-12 text-center">أسئلة بتيجي في بالكم</h2>
             <div class="space-y-4">
                 <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer" open>
                     <summary class="font-bold flex justify-between items-center list-none">
