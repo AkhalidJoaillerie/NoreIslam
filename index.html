@@ -169,8 +169,31 @@
                 <!-- Form -->
                 <div class="lg:w-1/2 bg-ivory p-8 rounded-2xl shadow-inner">
                     <h3 class="text-2xl font-bold mb-6">سيب بياناتك وهنكلمك</h3>
-                    <iframe data-tally-src="https://tally.so/embed/zx7lrq?hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" height="276" frameborder="0" marginheight="0" marginwidth="0" title="سيب بياناتك وهنكلمك"></iframe>
-<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">الاسم بالكامل</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="اكتب اسمك هنا">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">رقم التليفون (واتساب)</label>
+                            <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="01xxxxxxxxx">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">إنت مهتم بإيه؟</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none">
+                                <option>شراء ذهب (لبس)</option>
+                                <option>استثمار (سبايك وجنيهات)</option>
+                                <option>استشارة بخصوص الماس</option>
+                                <option>صيانة وتصليح</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">رسالتك (اختياري)</label>
+                            <textarea class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none h-24" placeholder="تحب تقولنا أي تفاصيل تانية؟"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-dark text-white py-4 rounded-lg font-bold hover:bg-black transition">إرسال الطلب</button>
+                        <p id="formFeedback" class="text-sm text-green-600 hidden text-center mt-2 font-bold">شكراً! هنرد عليك خلال 24 ساعة.</p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -253,6 +276,20 @@
     </div>
 
     <script>
+        // Form Handling
+        const form = document.getElementById('contactForm');
+        const feedback = document.getElementById('formFeedback');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate API call
+            form.querySelectorAll('button')[0].innerText = "جاري الإرسال...";
+            setTimeout(() => {
+                form.reset();
+                form.querySelectorAll('button')[0].innerText = "إرسال الطلب";
+                feedback.classList.remove('hidden');
+            }, 1000);
+        });
 
         // Chat Toggle
         function toggleChat() {
