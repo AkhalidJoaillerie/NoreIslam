@@ -276,20 +276,32 @@
     </div>
 
     <script>
-        // Form Handling
-        const form = document.getElementById('contactForm');
-        const feedback = document.getElementById('formFeedback');
+        // WhatsApp Form Handling
+const form = document.getElementById('contactForm');
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Simulate API call
-            form.querySelectorAll('button')[0].innerText = "جاري الإرسال...";
-            setTimeout(() => {
-                form.reset();
-                form.querySelectorAll('button')[0].innerText = "إرسال الطلب";
-                feedback.classList.remove('hidden');
-            }, 1000);
-        });
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // 1. تجميع البيانات من الحقول
+    const name = form.querySelectorAll('input')[0].value;
+    const phone = form.querySelectorAll('input')[1].value;
+    const interest = form.querySelector('select').value;
+    const message = form.querySelector('textarea').value;
+
+    // 2. تجهيز نص الرسالة بشكل منظم
+    const whatsappNumber = "201115697148";
+    const text = `استفسار جديد من الموقع:
+*الاسم:* ${name}
+*رقم التواصل:* ${phone}
+*الاهتمام:* ${interest}
+*الرسالة:* ${message || 'لا يوجد رسالة إضافية'}`;
+
+    // 3. تحويل النص لرابط واتساب وفتحه
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+    window.open(whatsappUrl, '_blank');
+});
 
         // Chat Toggle
         function toggleChat() {
