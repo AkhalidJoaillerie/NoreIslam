@@ -40,6 +40,19 @@
         .hero-gradient { background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1611085583191-a3b1588dff21?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; }
         .fade-in { animation: fadeIn 1s ease-in; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* السكويركل الحقيقي */
+.squircle {
+    clip-path: url(#squircleHTML);
+    /* سنحتاج لزيادة الـ padding قليلاً لأن السكويركل يأكل من الزوايا أكثر */
+    padding: 2.5rem !important; 
+}
+
+/* للأزرار (سكويركل أصغر) */
+.squircle-btn {
+    clip-path: url(#squircleHTML);
+    padding: 0.8rem 2rem !important;
+}
     </style>
 </head>
 <body class="bg-ivory text-dark">
@@ -115,13 +128,13 @@
             <h2 class="text-3xl font-bold mb-12">بنقدم لك إيه؟</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto">
                 <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                <div class="bg-white p-8 squircle shadow-sm hover:shadow-md transition">
                     <div class="text-4xl mb-4">💰</div>
                     <h3 class="text-xl font-bold mb-2">سبايك وجنيهات</h3>
                     <p class="text-gray-500 text-sm">أفضل طريقة للادخار والاستثمار بأقل مصنعية.</p>
                 </div>
                 <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border-2 border-gold/20">
+                <div class="bg-white p-8 squircle shadow-sm hover:shadow-md transition border-2 border-gold/20">
                     <div class="text-4xl mb-4">💍</div>
                     <h3 class="text-xl font-bold mb-2">مجوهرات ذهبية</h3>
                     <p class="text-gray-500 text-sm">تشكيلة مميزة من المشغولات الذهبية (عيار 18 و 21).</p>
@@ -130,7 +143,7 @@
                 <!-- Service 3 -->
                 <!--DELETED SERVICE-->
                 <!-- Service 4 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                <div class="bg-white p-8 squircle shadow-sm hover:shadow-md transition">
                     <div class="text-4xl mb-4">🤝</div>
                     <h3 class="text-xl font-bold mb-2">تحويل تخصصي</h3>
                     <p class="text-gray-500 text-sm">للماس والأحجار الكريمة، بنحولك لشركائنا المتخصصين.</p>
@@ -213,7 +226,7 @@
         <div class="container mx-auto px-4 max-w-3xl">
             <h2 class="text-3xl font-bold mb-12 text-center">أسئلة بتيجي في بالكم</h2>
             <div class="space-y-4">
-                <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer" open>
+                <details class="group bg-white p-6 squircle shadow-sm cursor-pointer" open>
                     <summary class="font-bold flex justify-between items-center list-none">
                         هل بتبيعوا ماس وأحجار كريمة؟
                         <span class="group-open:rotate-180 transition">▼</span>
@@ -221,7 +234,7 @@
                     <p class="mt-4 text-gray-600 text-sm leading-relaxed">حالياً إحنا متخصصين في الذهب والفضة والسبايك. للماسات والأحجار الكريمة بنحيلك لشركاء متخصصين بنثق فيهم عشان نضمن لك أحسن جودة.</p>
                 </details>
 
-                <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer">
+                <details class="group bg-white p-6 squircle shadow-sm cursor-pointer">
                     <summary class="font-bold flex justify-between items-center list-none">
                         إزاي أتأكد من نقاوة الذهب؟
                         <span class="group-open:rotate-180 transition">▼</span>
@@ -229,7 +242,7 @@
                     <p class="mt-4 text-gray-600 text-sm">كل قطعة عندنا مختومة بختم مصلحة الدمغة والموازين المصرية، وبنوزن القطعة قدامك على ميزان حساس معتمد.</p>
                 </details>
 
-                <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer">
+                <details class="group bg-white p-6 squircle shadow-sm cursor-pointer">
                     <summary class="font-bold flex justify-between items-center list-none">
                         إيه أحسن وقت أشتري فيه دهب كاستثمار؟
                         <span class="group-open:rotate-180 transition">▼</span>
@@ -237,7 +250,7 @@
                     <p class="mt-4 text-gray-600 text-sm">أحسن وقت هو لما يكون معاك فائض مادي، والذهب استثمار طويل الأمد. شرفنا في المحل وهنحلل لك وضع السوق الحالي.</p>
                 </details>
 
-                <details class="group bg-white p-6 rounded-xl shadow-sm cursor-pointer">
+                <details class="group bg-white p-6 squircle shadow-sm cursor-pointer">
                     <summary class="font-bold flex justify-between items-center list-none">
                         عندكم دفع بالفيزا؟
                         <span class="group-open:rotate-180 transition">▼</span>
@@ -283,6 +296,14 @@
             </div>
         </div>
     </div>
+
+    <svg width="0" height="0" style="position:absolute;">
+  <defs>
+    <clipPath id="squircleHTML" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0.5 C 0,0.05 0.05,0 0.5,0 S 1,0.05 1,0.5 S 0.95,1 0.5,1 S 0,0.95 0,0.5" />
+    </clipPath>
+  </defs>
+</svg>
 
     <script>
         // WhatsApp Form Handling
