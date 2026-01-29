@@ -169,31 +169,36 @@
                 <!-- Form -->
                 <div class="lg:w-1/2 bg-ivory p-8 rounded-2xl shadow-inner">
                     <h3 class="text-2xl font-bold mb-6">سيب بياناتك وهنكلمك</h3>
-                    <form id="contactForm" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-semibold mb-1">الاسم بالكامل</label>
-                            <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="اكتب اسمك هنا">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-1">رقم التليفون (واتساب)</label>
-                            <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="01xxxxxxxxx">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-1">إنت مهتم بإيه؟</label>
-                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none">
-                                <option>شراء ذهب (لبس)</option>
-                                <option>استثمار (سبايك وجنيهات)</option>
-                                <option>استشارة بخصوص الماس</option>
-                                <option>صيانة وتصليح</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-1">رسالتك (اختياري)</label>
-                            <textarea class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none h-24" placeholder="تحب تقولنا أي تفاصيل تانية؟"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-dark text-white py-4 rounded-lg font-bold hover:bg-black transition">إرسال الطلب</button>
-                        <p id="formFeedback" class="text-sm text-green-600 hidden text-center mt-2 font-bold">شكراً! هنرد عليك خلال 24 ساعة.</p>
-                    </form>
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-4">
+        
+        <input type="hidden" name="access_key" value="bbe39c12-d9ab-4c58-b3ff-6ed1cc9b3fa2">
+
+        <div>
+            <label class="block text-sm font-semibold mb-1">الاسم بالكامل</label>
+            <input type="text" name="الاسم" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="اكتب اسمك هنا">
+        </div>
+        <div>
+            <label class="block text-sm font-semibold mb-1">رقم التليفون (واتساب)</label>
+            <input type="tel" name="الهاتف" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="01xxxxxxxxx">
+        </div>
+        <div>
+            <label class="block text-sm font-semibold mb-1">إنت مهتم بإيه؟</label>
+            <select name="الاهتمام" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none">
+                <option value="ذهب">شراء ذهب (لبس)</option>
+                <option value="استثمار">استثمار (سبايك وجنيهات)</option>
+                <option value="ماس">استشارة بخصوص الماس</option>
+                <option value="صيانة">صيانة وتصليح</option>
+            </select>
+        </div>
+        <div>
+            <label class="block text-sm font-semibold mb-1">رسالتك (اختياري)</label>
+            <textarea name="الرسالة" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none h-24" placeholder="تحب تقولنا أي تفاصيل تانية؟"></textarea>
+        </div>
+
+        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+        <button type="submit" class="w-full bg-dark text-white py-4 rounded-lg font-bold hover:bg-black transition">إرسال الطلب</button>
+    </form>
                 </div>
             </div>
         </div>
