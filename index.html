@@ -282,24 +282,46 @@ const form = document.getElementById('contactForm');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // 1. تجميع البيانات من الحقول
-    const name = form.querySelectorAll('input')[0].value;
-    const phone = form.querySelectorAll('input')[1].value;
+    // 1. تجميع الحقول
+    const nameInput = form.querySelectorAll('input')[0];
+    const phoneInput = form.querySelectorAll('input')[1];
     const interest = form.querySelector('select').value;
     const message = form.querySelector('textarea').value;
 
-    // 2. تجهيز نص الرسالة بشكل منظم
+    // 2. التحقق من البيانات (Validation)
+    let isValid = true;
+
+    // إعادة ضبط الشكل الأصلي قبل الفحص
+    [nameInput, phoneInput].forEach(input => {
+        input.classList.remove('border-red-500', 'ring-2', 'ring-red-200');
+        input.classList.add('border-gray-300');
+    });
+
+    // فحص الاسم
+    if (!nameInput.value.trim()) {
+        nameInput.classList.add('border-red-500', 'ring-2', 'ring-red-200');
+        nameInput.classList.remove('border-gray-300');
+        isValid = false;
+    }
+
+    // فحص رقم التليفون
+    if (!phoneInput.value.trim()) {
+        phoneInput.classList.add('border-red-500', 'ring-2', 'ring-red-200');
+        phoneInput.classList.remove('border-gray-300');
+        isValid = false;
+    }
+
+    if (!isValid) return; // توقف لو البيانات ناقصة
+
+    // 3. تجهيز نص الرسالة للواتساب
     const whatsappNumber = "201115697148";
     const text = `استفسار جديد من الموقع:
-*الاسم:* ${name}
-*رقم التواصل:* ${phone}
+*الاسم:* ${nameInput.value}
+*رقم التواصل:* ${phoneInput.value}
 *الاهتمام:* ${interest}
 *الرسالة:* ${message || 'لا يوجد رسالة إضافية'}`;
 
-    // 3. تحويل النص لرابط واتساب وفتحه
-    const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
 });
 
