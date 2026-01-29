@@ -176,7 +176,7 @@
                         </div>
                         <div>
                             <label class="block text-sm font-semibold mb-1">رقم التليفون (واتساب)</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="01xxxxxxxxx">
+                            <input type="tel" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold outline-none" placeholder="01xxxxxxxxx">
                         </div>
                         <div>
                             <label class="block text-sm font-semibold mb-1">إنت مهتم بإيه؟</label>
@@ -289,24 +289,25 @@ form.addEventListener('submit', (e) => {
     const message = form.querySelector('textarea').value;
 
     // 2. التحقق من البيانات (Validation)
+    // 2. التحقق من البيانات (Validation)
     let isValid = true;
 
-    // إعادة ضبط الشكل الأصلي قبل الفحص
+    // إعادة ضبط الشكل الطبيعي (مسح أي لون أحمر قديم)
     [nameInput, phoneInput].forEach(input => {
-        input.classList.remove('border-red-500', 'ring-2', 'ring-red-200');
+        input.classList.remove('border-red-500');
         input.classList.add('border-gray-300');
     });
 
     // فحص الاسم
     if (!nameInput.value.trim()) {
-        nameInput.classList.add('border-red-500', 'ring-2', 'ring-red-200');
+        nameInput.classList.add('border-red-500');
         nameInput.classList.remove('border-gray-300');
         isValid = false;
     }
 
-    // فحص رقم التليفون
+    // فحص رقم التليفون (يجب ألا يكون فارغاً)
     if (!phoneInput.value.trim()) {
-        phoneInput.classList.add('border-red-500', 'ring-2', 'ring-red-200');
+        phoneInput.classList.add('border-red-500');
         phoneInput.classList.remove('border-gray-300');
         isValid = false;
     }
