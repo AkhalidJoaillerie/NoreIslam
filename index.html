@@ -317,6 +317,11 @@
             </div>
             <a href="#" class="hidden text-xs text-gray-500 underline">سياسة الخصوصية</a>
         </div>
+        
+        <button onclick="toggleMute()" id="muteBtn" class="fixed bottom-24 right-6 bg-white/20 backdrop-blur-md p-3 rounded-full border border-white/50 z-50 hover:scale-110 transition shadow-lg">
+    <span id="muteIcon">🔊</span>
+</button>
+        
     </footer>
 
     <!-- Chat Widget Placeholder -->
@@ -422,6 +427,18 @@ form.addEventListener('submit', (e) => {
     }
 
     // تأكد أن الصوت يبدأ فعلياً فقط بعد تفاعل العميل مع الزر
-</script>
+
+        // أضف هذه الوظيفة داخل الـ script الموجود في آخر الصفحة
+function toggleMute() {
+    const myAudio = document.getElementById('bgAudio');
+    const muteIcon = document.getElementById('muteIcon');
+    
+    myAudio.muted = !myAudio.muted; // يعكس حالة الكتم (لو مكتوم يفتحه والعكس)
+    
+    // تغيير الرمز التعبيري بناءً على الحالة
+    muteIcon.innerText = myAudio.muted ? '🔇' : '🔊';
+}
+    
+    </script>
 </body>
 </html>
