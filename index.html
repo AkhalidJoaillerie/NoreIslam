@@ -175,6 +175,12 @@
             </div>
         </div>
     </section>
+    
+    <!-- Audio BG -->
+
+    <audio id="bgAudio" loop>
+    <source src="AudioNNN.mp3" type="audio/mpeg">
+</audio>
 
     <!-- Contact & Map -->
     <section id="contact" class="py-20 bg-white">
@@ -386,5 +392,25 @@ form.addEventListener('submit', (e) => {
            - If asked about Diamonds: "For diamonds, we refer you to our expert partners."
         */
     </script>
+    <script>
+    const myAudio = document.getElementById('bgAudio');
+    
+    // ضبط مستوى الصوت ليكون 20%
+    myAudio.volume = 0.2;
+
+    // وظيفة لتشغيل الصوت عند أول تفاعل للمستخدم
+    function playAudio() {
+        myAudio.play().catch(error => {
+            console.log("المتصفح منع التشغيل التلقائي حتى الآن");
+        });
+        // إزالة المستمع بعد أول تفاعل لعدم تكرار الكود
+        document.removeEventListener('click', playAudio);
+        document.removeEventListener('touchstart', playAudio);
+    }
+
+    // الانتظار حتى يضغط المستخدم في أي مكان
+    document.addEventListener('click', playAudio);
+    document.addEventListener('touchstart', playAudio);
+</script>
 </body>
 </html>
