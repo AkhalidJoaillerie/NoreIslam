@@ -91,7 +91,14 @@
     color: #7C142D; /* لون العلامة عنابي ليناسب هوية البراند */
 }
 
-
+/* إخفاء شريط التمرير القبيح مع الحفاظ على وظيفته */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
 </style>
 </head>
@@ -196,85 +203,92 @@
             
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div class="bg-ivory/30 p-8 rounded-2xl border border-gold/10 shadow-sm hover:shadow-md transition-all group">
-                <div class="text-gold mb-4 flex gap-1">
-                    <span>★</span><span>★</span><span>★</span><span>★</span>
-                    <span class="text-gray-300">★</span> 
-                </div>
-                <p class="text-gray-700 italic mb-6 leading-relaxed">
-                    "محل كويس واسعار معقولة ومعاملة ذوق جداً"
-                </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center text-gold font-bold">
-                        K
+        <div class="relative group">
+    <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide px-4" id="testimonialSlider">
+        
+        <div class="min-w-[85%] md:min-w-[45%] lg:min-w-[30%] snap-center">
+            <div class="bg-ivory/30 p-8 rounded-2xl border border-gold/10 shadow-sm hover:shadow-md transition-all h-full flex flex-col justify-between">
+                <div>
+                    <div class="text-gold mb-4 flex gap-1">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-gray-300">★</span> 
                     </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">
+                        "محل كويس واسعار معقولة ومعاملة ذوق جداً"
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center text-gold font-bold">K</div>
                     <div>
                         <h4 class="font-bold text-sm">Kawsar Albanhawy</h4>
                         <p class="text-[10px] text-gray-500">عميل موثق - جوجل مابس</p>
                     </div>
                 </div>
             </div>
-
-            <div class="bg-ivory/30 p-8 rounded-2xl border border-gold/10 shadow-sm hover:shadow-md transition-all group">
-                <div class="text-gold mb-4 flex gap-1">
-                    <span>★</span><span>★</span><span>★</span><span>★</span>
-                    <span class="text-gray-300">★</span> 
-                </div>
-                <p class="text-gray-700 italic mb-6 leading-relaxed">
-                    "محل كويس واسعار معقولة ومعاملة ذوق جداً"
-                </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center text-gold font-bold">
-                        K
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-sm">Kawsar Albanhawy</h4>
-                        <p class="text-[10px] text-gray-500">عميل موثق - جوجل مابس</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-ivory/30 p-8 rounded-2xl border border-gold/10 shadow-sm hover:shadow-md transition-all group">
-                <div class="text-gold mb-4 flex gap-1">
-                    <span>★</span><span>★</span><span>★</span><span>★</span>
-                    <span class="text-gray-300">★</span> 
-                </div>
-                <p class="text-gray-700 italic mb-6 leading-relaxed">
-                    "محل كويس واسعار معقولة ومعاملة ذوق جداً"
-                </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center text-gold font-bold">
-                        K
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-sm">Kawsar Albanhawy</h4>
-                        <p class="text-[10px] text-gray-500">عميل موثق - جوجل مابس</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-ivory/30 p-8 rounded-2xl border border-gold/10 shadow-sm hover:shadow-md transition-all group">
-                <div class="text-gold mb-4 flex gap-1">
-                    <span>★</span><span>★</span><span>★</span><span>★</span>
-                    <span class="text-gray-300">★</span> 
-                </div>
-                <p class="text-gray-700 italic mb-6 leading-relaxed">
-                    "محل كويس واسعار معقولة ومعاملة ذوق جداً"
-                </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center text-gold font-bold">
-                        K
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-sm">Kawsar Albanhawy</h4>
-                        <p class="text-[10px] text-gray-500">عميل موثق - جوجل مابس</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <div class="min-w-[85%] md:min-w-[45%] lg:min-w-[30%] snap-center">
+            <div class="bg-ivory/30 p-8 rounded-2xl border border-gold/10 shadow-sm hover:shadow-md transition-all h-full flex flex-col justify-between">
+                <div>
+                    <div class="text-gold mb-4 flex gap-1">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-gray-300">★</span> 
+                    </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">
+                        "محل كويس واسعار معقولة ومعاملة ذوق جداً"
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center text-gold font-bold">K</div>
+                    <div>
+                        <h4 class="font-bold text-sm">Kawsar Albanhawy</h4>
+                        <p class="text-[10px] text-gray-500">عميل موثق - جوجل مابس</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="min-w-[85%] md:min-w-[45%] lg:min-w-[30%] snap-center">
+            <div class="bg-ivory/30 p-8 rounded-2xl border border-gold/10 shadow-sm hover:shadow-md transition-all h-full flex flex-col justify-between">
+                <div>
+                    <div class="text-gold mb-4 flex gap-1">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-gray-300">★</span> 
+                    </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">
+                        "محل كويس واسعار معقولة ومعاملة ذوق جداً"
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center text-gold font-bold">K</div>
+                    <div>
+                        <h4 class="font-bold text-sm">Kawsar Albanhawy</h4>
+                        <p class="text-[10px] text-gray-500">عميل موثق - جوجل مابس</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="min-w-[85%] md:min-w-[45%] lg:min-w-[30%] snap-center">
+            <div class="bg-ivory/30 p-8 rounded-2xl border border-gold/10 shadow-sm hover:shadow-md transition-all h-full flex flex-col justify-between">
+                <div>
+                    <div class="text-gold mb-4 flex gap-1">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-gray-300">★</span> 
+                    </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">
+                        "محل كويس واسعار معقولة ومعاملة ذوق جداً"
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center text-gold font-bold">K</div>
+                    <div>
+                        <h4 class="font-bold text-sm">Kawsar Albanhawy</h4>
+                        <p class="text-[10px] text-gray-500">عميل موثق - جوجل مابس</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+        
     </div>
 </section>
     </section>
