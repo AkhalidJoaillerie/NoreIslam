@@ -71,6 +71,26 @@
     .hero-gradient { background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1611085583191-a3b1588dff21?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; }
     .fade-in { animation: fadeIn 1s ease-in; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* الكلاس الجديد الذي سيتم إضافته عند الاختيار */
+.selected-style {
+    background-color: #faf7eb !important;
+    color: black !important;
+    border-color: #b881a4 !important;
+    position: relative; /* ضروري لضبط موقع علامة الصح */
+}
+
+.selected-style::after {
+    content: '⬥';
+    position: absolute;
+    right: 30px; /* المسافة من الحافة اليسرى */
+    top: 50%;
+    transform: translateY(-50%); /* لضبط التوسط الرأسي بدقة */
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #7C142D; /* لون العلامة عنابي ليناسب هوية البراند */
+}
+
 </style>
 </head>
 <body class="bg-ivory text-dark">
@@ -479,25 +499,31 @@ form.addEventListener('submit', (e) => {
         muteIcon.innerText = myAudio.muted ? '🔇' : '🔊';
     }
 
-// كود تحديث شكل الاختيار بصرياً
+// كود تحديث شكل الاختيار بصرياً مع إضافة علامة الصح
 const options = document.querySelectorAll('.interest-option');
 
 options.forEach(option => {
     option.addEventListener('click', function() {
-        // 1. مسح التنسيق من كل الأزرار
+        // 1. مسح الكلاس والتنسيقات من كل الأزرار أولاً
         options.forEach(opt => {
             const div = opt.querySelector('div');
-            div.style.backgroundColor = 'transparent';
-            div.style.color = 'inherit';
-            div.style.borderColor = '#d1d5db'; // رمادي فاتح
+            div.classList.remove('selected-style');
+            // التأكد من تصفير الـ inline styles لو كانت موجودة
+            div.style.backgroundColor = '';
+            div.style.color = '';
+            div.style.borderColor = '';
         });
 
-        // 2. إضافة التنسيق العنابي للزر المختار
+        // 2. إضافة الكلاس للزر الذي تم الضغط عليه
         const activeDiv = this.querySelector('div');
-        activeDiv.style.backgroundColor = '#faf7eb';
-        activeDiv.style.color = 'black';
-        activeDiv.style.borderColor = '#b881a4'; // ذهبي
+        activeDiv.classList.add('selected-style');
     });
+});
+
+// لجعل أول خيار يظهر كـ "مختار" عند تحميل الصفحة لأول مرة
+window.addEventListener('DOMContentLoaded', () => {
+    const firstOption = document.querySelector('.interest-option div');
+    if(firstOption) firstOption.classList.add('selected-style');
 });
 
 </script>
