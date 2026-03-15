@@ -415,31 +415,35 @@ form.addEventListener('submit', (e) => {
     <script>
     const myAudio = document.getElementById('bgAudio');
     const audioModal = document.getElementById('audioModal');
+    const muteBtn = document.getElementById('muteBtn'); // قمنا بتعريف الزر هنا
 
-    // وظيفة التحكم في الاختيار
     function handleAudio(wantsAudio) {
         if (wantsAudio) {
-            myAudio.volume = 0.2; // درجة الصوت 20%
+            myAudio.volume = 0.2;
             myAudio.play().catch(e => console.log("خطأ في التشغيل"));
+        } else {
+            // لو العميل ضغط "لا شكراً" نخفي زر الصوت فوراً
+            if(muteBtn) muteBtn.style.display = 'none';
         }
-        
-        // إخفاء الـ Pop-up في كلتا الحالتين
         audioModal.style.display = 'none';
     }
 
-    // تأكد أن الصوت يبدأ فعلياً فقط بعد تفاعل العميل مع الزر
+    // مراقبة انتهاء ملف الصوت
+    myAudio.addEventListener('ended', function() {
+        if(muteBtn) {
+            muteBtn.style.transition = 'opacity 0.8s'; // اختفاء ناعم
+            muteBtn.style.opacity = '0';
+            setTimeout(() => {
+                muteBtn.style.display = 'none'; // حذف الزر تماماً بعد الاختفاء
+            }, 800);
+        }
+    });
 
-        // أضف هذه الوظيفة داخل الـ script الموجود في آخر الصفحة
-function toggleMute() {
-    const myAudio = document.getElementById('bgAudio');
-    const muteIcon = document.getElementById('muteIcon');
-    
-    myAudio.muted = !myAudio.muted; // يعكس حالة الكتم (لو مكتوم يفتحه والعكس)
-    
-    // تغيير الرمز التعبيري بناءً على الحالة
-    muteIcon.innerText = myAudio.muted ? '🔇' : '🔊';
-}
-    
-    </script>
+    function toggleMute() {
+        const muteIcon = document.getElementById('muteIcon');
+        myAudio.muted = !myAudio.muted;
+        muteIcon.innerText = myAudio.muted ? '🔇' : '🔊';
+    }
+</script>
 </body>
 </html>
