@@ -478,6 +478,28 @@ form.addEventListener('submit', (e) => {
         myAudio.muted = !myAudio.muted;
         muteIcon.innerText = myAudio.muted ? '🔇' : '🔊';
     }
+
+// كود تحديث شكل الاختيار بصرياً
+const options = document.querySelectorAll('.interest-option');
+
+options.forEach(option => {
+    option.addEventListener('click', function() {
+        // 1. مسح التنسيق من كل الأزرار
+        options.forEach(opt => {
+            const div = opt.querySelector('div');
+            div.style.backgroundColor = 'transparent';
+            div.style.color = 'inherit';
+            div.style.borderColor = '#d1d5db'; // رمادي فاتح
+        });
+
+        // 2. إضافة التنسيق العنابي للزر المختار
+        const activeDiv = this.querySelector('div');
+        activeDiv.style.backgroundColor = '#faf5dc';
+        activeDiv.style.color = 'black';
+        activeDiv.style.borderColor = '#f2da8f'; // ذهبي
+    });
+});
+
 </script>
 </body>
 </html>
