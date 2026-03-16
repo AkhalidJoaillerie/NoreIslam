@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>حاسبة سعر الذهب | Jewelry Calculator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="GoldCalcWine@3x-100.jpg">
+
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-dark: #B8860B;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --error: #ff7675;
+            --radius: 12px;
+            --shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            /* تحديث الخط هنا */
+            font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 120px; /* Space for sticky footer */
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px 0;
+        }
+
+        /* الشعار */
+        .main-logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        /* Card Layout */
+        .calc-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #edf2f7;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+            -moz-appearance: textfield;
+            font-family: inherit; /* لضمان استخدام نفس الخط داخل المدخلات */
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input:focus {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Custom Karat Dropdown */
+        .custom-select {
+            position: relative;
+            user-select: none;
+        }
+
+        .select-trigger {
+            padding: 12px 15px;
+            border: 2px solid #edf2f7;
+            border-radius: var(--radius);
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .select-options {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            z-index: 10;
+            display: none;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .select-options.active {
+            display: block;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        .option {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option:hover {
+            background: #fdfaf0;
+        }
+
+        .option.selected {
+            background: var(--primary-gold);
+            color: white;
+        }
+
+        /* Result Area */
+        .gram-price-display {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .gram-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .gram-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Sticky Footer */
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.08);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top: 3px solid var(--primary-gold);
+        }
+
+        .total-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .total-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        /* Reset Button */
+        .btn-reset {
+            background: none;
+            border: none;
+            color: var(--error);
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 25px;
+            width: 100%;
+            padding: 10px;
+            text-decoration: underline;
+            font-family: inherit;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 380px) {
+            .total-value { font-size: 1.5rem; }
+            .calc-card { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="NewLogoGold.svg" alt="NewLogoGold" class="main-logo">
+            <h1>حاسبة الذهب</h1>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">أسعار دقيقة شاملة المصنعية والضريبة</p>
+        </header>
+
+        <main class="calc-card">
+            <div class="form-group">
+                <label for="price21">سعر الذهب عيار 21 اليوم (جـ)</label>
+                <input type="number" id="price21" placeholder="مثال: 6XXX" step="0.01" min="0">
+            </div>
+
+            <div class="form-group">
+                <label>العيار المختار</label>
+                <div class="custom-select" id="karatSelect">
+                    <div class="select-trigger">
+                        <span id="selectedKaratDisplay">عيار 21</span>
+                        <span style="font-size: 0.7rem;">▼</span>
+                    </div>
+                    <div class="select-options" id="karatOptions">
+                        <div class="option" data-value="18">عيار 18</div>
+                        <div class="option selected" data-value="21">عيار 21</div>
+                        <div class="option" data-value="24">عيار 24</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight">الوزن (جرام)</label>
+                <input type="number" id="weight" placeholder="0.00" step="0.01" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="tax">نسبة ضريبة القيمة المضافة (%)</label>
+                <input type="number" id="tax" placeholder="مثال: 2" step="0.1" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="manufacturing">المصنعية للجرام الواحد (جـ)</label>
+                <input type="number" id="manufacturing" placeholder="مثال: 300" step="0.01" min="0">
+            </div>
+
+            <div class="gram-price-display">
+                <div class="gram-label">سعر الجرام النهائي (شامل المصنعية والضريبة)</div>
+                <div class="gram-value" id="outGramPrice">0.00 جـ</div>
+            </div>
+
+            <button class="btn-reset" id="resetBtn">إعادة ضبط الحقول</button>
+        </main>
+    </div>
+
+    <div class="sticky-footer">
+        <div class="total-label">إجمالي سعر القطعة</div>
+        <div class="total-value" id="outTotalPiecePrice">0.00 جـ</div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const inputs = document.querySelectorAll('input');
+        const price21Input = document.getElementById('price21');
+        const weightInput = document.getElementById('weight');
+        const taxInput = document.getElementById('tax');
+        const manufacturingInput = document.getElementById('manufacturing');
+        
+        const karatSelect = document.getElementById('karatSelect');
+        const karatTrigger = karatSelect.querySelector('.select-trigger');
+        const karatOptionsContainer = document.getElementById('karatOptions');
+        const options = karatOptionsContainer.querySelectorAll('.option');
+        const selectedKaratDisplay = document.getElementById('selectedKaratDisplay');
+        
+        const outGramPrice = document.getElementById('outGramPrice');
+        const outTotalPiecePrice = document.getElementById('outTotalPiecePrice');
+        const resetBtn = document.getElementById('resetBtn');
+
+        let selectedKarat = 21;
+
+        // --- Custom Dropdown Logic ---
+        karatTrigger.addEventListener('click', () => {
+            karatOptionsContainer.classList.toggle('active');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                options.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedKarat = parseInt(option.dataset.value);
+                selectedKaratDisplay.innerText = `عيار ${selectedKarat}`;
+                karatOptionsContainer.classList.remove('active');
+                calculate();
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!karatSelect.contains(e.target)) {
+                karatOptionsContainer.classList.remove('active');
+            }
+        });
+
+        const formatCurrency = (num) => {
+            return new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(num) + ' جـ';
+        };
+
+        const calculate = () => {
+            const p21 = parseFloat(price21Input.value) || 0;
+            const grams = parseFloat(weightInput.value) || 0;
+            const tax = parseFloat(taxInput.value) || 0;
+            const mfg = parseFloat(manufacturingInput.value) || 0;
+
+            if (p21 < 0 || grams < 0 || tax < 0 || mfg < 0) return;
+
+            const karatPrice = p21 * (selectedKarat / 21);
+            const priceAfterTax = karatPrice * (1 + (tax / 100));
+            const finalGramPrice = priceAfterTax + mfg;
+            const finalPiecePrice = finalGramPrice * grams;
+
+            outGramPrice.innerText = formatCurrency(finalGramPrice);
+            outTotalPiecePrice.innerText = formatCurrency(finalPiecePrice);
+        };
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value < 0) input.value = 0;
+                calculate();
+            });
+        });
+
+        resetBtn.addEventListener('click', () => {
+            inputs.forEach(input => input.value = '');
+            selectedKarat = 21;
+            selectedKaratDisplay.innerText = 'عيار 21';
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[1].classList.add('selected');
+            calculate();
+        });
+
+        calculate();
+    </script>
+</body>
+</html>
